@@ -16,7 +16,7 @@ const SERVER_VERSION1_SECURE_ADMIN = SERVER_URL + SERVER_API_VERSION1 + SERVER_A
 const SERVER_VERSION1_SECURE_ADMIN_AGENT = SERVER_URL + SERVER_API_VERSION1 + SERVER_ADMIN_AGENT;
 
 // TOKEN
-export const SERVER_LOGIN = AUTH_SERVER+"/oauth2/authorize?response_type=code&client_id=id&scope=openid%20profile&redirect_uri=http://10.252.235.182:5173/authorization_code";
+export const SERVER_LOGIN = AUTH_SERVER+`/oauth2/authorize?response_type=code&client_id=id&scope=openid%20profile&redirect_uri=http://${DOMAIN}:5173/authorization_code`;
 export const SERVER_AUTHORIZATION_CODE_EXCHANGE = SERVER_VERSION1_PERMIT_ALL+"/token-exchange";
 export const SERVER_ACCESS_TOKEN_REFRESH = SERVER_VERSION1_PERMIT_ALL + "/access-token-refresh";
 export const SERVER_LOGOUT = AUTH_SERVER+"/logout";
