@@ -1,0 +1,24 @@
+.settings-container {
+    padding: 10px 20px;
+}
+
+.connection-test-li-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px
+}
+
+.status-indicator {
+    border: 1px solid;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.status-indicator.success {
+    background-color: var(--success-message-color);
+}
+
+.status-indicator.failed {
+    background-color: var(--error-message-color);
+}

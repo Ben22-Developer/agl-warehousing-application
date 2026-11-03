@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: agl.warehouse.authorization.server
+    client:
+      domain: localhost
+
+  security:
+    client:
+      client-id: id # used in security config
+      client-secret: secret # used in security config
+      redirect-uri: http://${spring.application.client.domain}:5173/authorization_code # used in security config
+      post-logout-redirect-url: http://${spring.application.client.domain}:5173/authorization_code # used in security config
+    password-strength: 12  # used in security config, also in resource server there's property
+    access-token-duration: 7200 # used in security config
+    refresh-token-duration: 2592000 # used in security config, also in resource server there's property
+
+    cross-origin: http://${spring.application.client.domain}:5173 # used in security config, also in resource server there's property
+
+  datasource:
+      url: jdbc:mysql://localhost/warehouseappdatabase
+      username: root
+      password: MySQL0781172951
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 9090
+
+
+
+logging:
+  level:
+    org.springframework.security: trace
+    org.springframework.web: DEBUG

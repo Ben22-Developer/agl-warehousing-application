@@ -1,0 +1,96 @@
+
+
+
+/* Main UI Container */
+.progress-container {
+    background-color: var(--bg-primary);
+    padding: 40px 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Background ConnectionComponent Track */
+.progress-track {
+    position: absolute;
+    top: 60px; /* Aligns with the middle of the nodes */
+    left: 50px;
+    right: 50px;
+    height: 4px;
+    background-color: var(--text-secondary);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* Colored Progress Fill */
+.progress-indicator {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-color), #818cf8);
+    border-radius: 2px;
+    transition: width 200ms ease;
+    box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* Flex Wrapper for Steps */
+.steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+/* Circle Nodes */
+.step-node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease;
+}
+
+/* Informative Labels Below Nodes */
+.step-label {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Active and Completed States */
+.step-item.completed .step-node {
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    box-shadow: 0 0 0 4px var(--bg-tertiary);
+}
+
+.step-item.completed .step-label {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Intercompleted Navigation Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}

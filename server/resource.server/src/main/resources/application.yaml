@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: warehouse.app.resource.server
+    client:
+      domain: localhost
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090 # who will send the JWT, used in JWTService, spring.security.oauth2.resourceserver.jwt.issuer-uri
+          audiences: id # used in JWTService, spring.security.oauth2.resourceserver.jwt.audiences
+          secret: secret # # used in JWTService, spring.security.oauth2.resourceserver.jwt.secret
+      endpoints:
+        token: /oauth2/token # used in JWTService, spring.security.oauth2.endpoints.token
+        logout: /logout # used in JWTService, spring.security.oauth2.endpoints.logout
+    password-strength: 12 # used in security config, also in authorization server there's property
+    redirect-uri: http://${spring.application.client.domain}:5173/authorization_code # used in JWTService, spring.security.redirect-uri
+    refresh-token-duration: 259200  # used in JWTService, spring.security.refresh-token-duration
+
+    cross-origin: http://${spring.application.client.domain}:5173 # used in JWTService, spring.security.cross-origin
+
+  datasource: # used in database config, .env
+    url: jdbc:mysql://localhost/warehouseappdatabase
+    username: root # used in database config # used in database config
+    driver-class-name: com.mysql.cj.jdbc.Driver # used in database config
+
+    jpa:
+      mysql:
+        persistence-unit-name: mysql-persistence-unit-name # used in database config
+      ddl: create-drop # used in database config
+      show_sql: true # used in database confi
+
+server:
+  port: 9091
+
+logging:
+  level:
+    org.springframework.security: trace
+
+cloudinary: # used in TestController, CloudinaryClientService, .env [api credentials]
+  uri:
+    post: https://api.cloudinary.com/v1_1/dmezhhdmh/image/upload
+    delete: https://api.cloudinary.com/v1_1/dmezhhdmh/image/destroy
+  asset-folder: agl warehouse management app

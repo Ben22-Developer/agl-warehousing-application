@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AGL Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="cl-login09">
+    <header class="cl-login09__bar">
+        <a class="cl-login09__brand" href="#" aria-label="Corely admin console home">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" fill="#1d3a8a"/><rect x="13" y="2" width="9" height="9" fill="#3b64d8"/><rect x="2" y="13" width="9" height="9" fill="#3b64d8"/><rect x="13" y="13" width="9" height="9" fill="#9db4f2"/></svg>
+            <span>African Gloabal Logistics <span class="cl-login09__brand-sub">Login Console</span></span>
+        </a>
+    </header>
+
+    <main class="cl-login09__main">
+
+        <div class="error-message" th:if="${param.error}">
+            Invalid username and password.
+        </div>
+
+        <div class="logout-message" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <section class="cl-login09__card" aria-labelledby="cl-login09-title">
+            <div data-view>
+                <h1 class="cl-login09__title" id="cl-login09-title">Sign in to your workspace</h1>
+
+                <form th:action="@{/login}" method="post" class="cl-login09__form" data-form novalidate>
+
+                    <div class="cl-login09__field" data-field>
+                        <label class="cl-login09__label" for="cl-login09-email">Email</label>
+                        <input class="cl-login09__input" id="cl-login09-email" name="username" type="username" autocomplete="username" required data-msg="Enter your work username." aria-describedby="cl-login09-email-err">
+                    </div>
+
+                    <div class="cl-login09__field" data-field>
+                        <div class="cl-login09__row">
+                            <label class="cl-login09__label" for="cl-login09-pw">Password</label>
+                            <a class="cl-login09__link" href="#">Forgot password?</a>
+                        </div>
+                        <div class="cl-login09__pw">
+                            <input class="cl-login09__input" id="cl-login09-pw" name="password" type="password" autocomplete="current-password" required minlength="12" data-msg="Enter your password." aria-describedby="cl-login09-pw-err">
+                        </div>
+                    </div>
+
+                    <button class="cl-login09__submit" type="submit">Sign in</button>
+                    <button class="cl-login09__secondary" type="button" data-sso>Create Account</button>
+                </form>
+            </div>
+
+            <div class="cl-login09__done" data-success tabindex="-1" hidden>
+                <p class="cl-login09__done-kicker">Authenticated</p>
+                <h2 class="cl-login09__title" data-done-title>Welcome back</h2>
+                <dl class="cl-login09__session">
+                    <div><dt>Workspace</dt><dd data-s-ws></dd></div>
+                    <div><dt>Account</dt><dd data-s-email></dd></div>
+                    <div><dt>Region</dt><dd data-s-region></dd></div>
+                    <div><dt>Session</dt><dd data-s-session></dd></div>
+                </dl>
+                <button class="cl-login09__secondary" type="button" data-reset>Sign out</button>
+            </div>
+
+            <div class="cl-login09__live" role="status" aria-live="polite" data-live></div>
+        </section>
+
+        <p class="cl-login09__notice">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6Z"/></svg>
+            Authorised & Authenticated use only.
+        </p>
+    </main>
+
+    <footer class="cl-login09__foot">
+        <span>&copy; 2026 African Global Logistics Ltd &middot; Login Console v4.18.2</span>
+        <span><a class="cl-login09__link" href="#">Security</a> <a class="cl-login09__link" href="#">Privacy</a> <a class="cl-login09__link" href="#">Support</a></span>
+        <span></span>
+    </footer>
+</div>
+<!-- <script src="js/snippet.js"></script> -->
+</body>
+</html>
